@@ -6,9 +6,9 @@ const router = express.Router();
 
 router.get("/", methods.ensureToken, userController.getAllUsers);
 
-router.get("/:username", methods.ensureToken, userController.getOneUser);
+router.get("/:username", userController.getOneUser); // No JWT required for registering
 
-router.post("/", methods.ensureToken, userController.createNewUser);
+router.post("/", userController.createNewUser); // No JWT required for registering
 
 router.patch("/:user_id", methods.ensureToken, userController.updateOneUser);
 
