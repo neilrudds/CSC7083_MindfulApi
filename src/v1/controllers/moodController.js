@@ -21,8 +21,8 @@ const getAllMoods = async (req, res) => {
   const createNewMood = async (req, res) => {
     try {
       console.log("".concat("[Method: ", req.method, "], [Url: ", req.url, "], [Body: ", JSON.stringify(req.body), "]"));
-      const { description } = req.body;
-      var result = await moodService.createNewMood(description);
+      const { description, html_colour } = req.body;
+      var result = await moodService.createNewMood(description, html_colour);
       res.status(201).json({mood_id: result.insertId});
     } catch (err) {
       res.status(400).send(err.message)
@@ -32,8 +32,8 @@ const getAllMoods = async (req, res) => {
   const updateOneMood = async (req, res) => {
     try {
       console.log("".concat("[Method: ", req.method, "], [Url: ", req.url, "], [Body: ", JSON.stringify(req.body), "]"));
-      const { description } = req.body;
-      var result = moodService.updateOneMood(description, req.params.mood_id);
+      const { description, html_colour } = req.body;
+      var result = moodService.updateOneMood(description, html_colour, req.params.mood_id);
       if (result.affectedRows == 0) {
         res.status(404).json({result: "mood not found"});
         return;

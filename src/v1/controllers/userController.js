@@ -32,8 +32,8 @@ const getAllUsers = async (req, res) => {
   const updateOneUser = async (req, res) => {
     try {
       console.log("".concat("[Method: ", req.method, "], [Url: ", req.url, "], [Body: ", JSON.stringify(req.body), "]"));
-      const { username, user_email, user_password, user_status } = req.body;
-      var result = userService.updateOneUser(username, user_email, user_password, user_status, req.params.user_id);
+      const { username, user_email, hashed_password, user_status } = req.body;
+      var result = userService.updateOneUser(username, user_email, hashed_password, user_status, req.params.user_id);
       if (result.affectedRows == 0) {
         res.status(404).json({result: "user not found"});
         return;

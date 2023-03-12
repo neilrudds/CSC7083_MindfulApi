@@ -17,7 +17,7 @@ const db = require('../../database/db');
   };
   
   const deleteOneUser = async (user_id) => {
-    return await db.pool.query("DELETE FROM user WHERE user_id = ?", user_id);;
+    return await db.pool.query("DELETE FROM user WHERE user_id = ?", user_id);
   };
   
   module.exports = {
