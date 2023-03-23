@@ -17,7 +17,7 @@ const db = require('../../database/db');
   };
   
   const deleteOneMood = async (mood_id) => {
-    return await db.pool.query("DELETE FROM mood WHERE mood_id = ?", mood_id);;
+    return await db.pool.query("DELETE FROM mood WHERE mood_id = ?", mood_id);
   };
   
   module.exports = {
