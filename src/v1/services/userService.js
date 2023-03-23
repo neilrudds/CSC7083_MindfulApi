@@ -17,7 +17,7 @@ const db = require('../../database/db');
   };
   
   const deleteOneUser = async (user_id) => {
-    await db.pool.query("DELETE FROM mood WHERE user_id = ?", mood_id);
+    await db.pool.query("DELETE FROM mood_log WHERE user_id = ?", user_id);
     return await db.pool.query("DELETE FROM user WHERE user_id = ?", user_id);
   };
   
